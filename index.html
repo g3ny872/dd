@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>discord.gg/q1</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://cdn.discordapp.com/attachments/1279501459410649241/1279812636220981321/d6873b3e0197d72c4671d690d3d36f73.gif?ex=68916ea6&is=68901d26&hm=24b1b3ee283efa07165056b001c8ea828ae0f1fcd96d1dd92b8ce294bcb968c0&') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Courier New', Courier, monospace;
+            color: #66fcf1; /* لون سماوي فاتح */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            background-color: #0b0c10; /* خلفية داكنة لتعزيز التباين */
+            background-blend-mode: multiply;
+        }
+        .image-container img {
+            width: 750px;
+            height: auto;
+            border: 2px solid #45a29e; /* لون سماوي أغمق */
+            border-radius: 15px;
+            box-shadow: 0 0 20px #45a29e;
+        }
+        .info {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #66fcf1;
+            text-shadow: 0 0 8px #45a29e, 0 0 15px #66fcf1, 0 0 25px #66fcf1;
+            letter-spacing: 2px;
+            white-space: pre-wrap;
+            max-width: 800px;
+        }
+        .text {
+            margin-top: 20px;
+            font-size: 3em;
+            color: #66fcf1;
+            text-shadow: 0 0 8px #45a29e, 0 0 15px #66fcf1, 0 0 25px #66fcf1;
+            letter-spacing: 4.5px;
+        }
+        .video-container {
+            margin-top: 30px;
+            border: 3px solid #45a29e;
+            border-radius: 15px;
+            box-shadow: 0 0 25px #45a29e;
+            width: 560px;
+            height: 315px;
+        }
+        iframe {
+            border-radius: 15px;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="https://cdn.discordapp.com/attachments/1279501459410649241/1279812636220981321/d6873b3e0197d72c4671d690d3d36f73.gif?ex=68916ea6&is=68901d26&hm=24b1b3ee283efa07165056b001c8ea828ae0f1fcd96d1dd92b8ce294bcb968c0&" alt="Discord Image" />
+    </div>
+
+    <div class="video-container">
+        <iframe 
+          src="https://www.youtube.com/embed/obGVZxGrOXQ" 
+          allow="autoplay; encrypted-media" 
+          allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="info" id="ip-info">
+        جاري جلب بيانات IP...
+    </div>
+
+    <div class="text">discord.gg/uaee</div>
+
+    <script>
+        fetch('https://ipinfo.io/json')
+            .then(response => response.json())
+            .then(data => {
+                if (data.readme) delete data.readme;
+                const formatted = `
+IP: ${data.ip}
+City: ${data.city}
+Region: ${data.region}
+Country: ${data.country}
+Location: ${data.loc}
+Organization: ${data.org}
+Timezone: ${data.timezone}
+                `;
+                document.getElementById('ip-info').textContent = formatted;
+            })
+            .catch(() => {
+                document.getElementById('ip-info').textContent = 'فشل جلب بيانات IP.';
+            });
+    </script>
+</body>
+</html>
